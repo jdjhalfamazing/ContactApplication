@@ -27,7 +27,6 @@ public class SimpleShoppingCartProgramHashmap {
         Scanner userInput = new Scanner(System.in);
 
 
-
         do {
             System.out.println("What is your toy selection you would like to purchase?");
 
@@ -45,7 +44,7 @@ public class SimpleShoppingCartProgramHashmap {
                 System.out.println("Do you want to try again? Y or N");
                 String loopResponse = userInput.nextLine();
 
-                if(loopResponse.equalsIgnoreCase("y")){
+                if (loopResponse.equalsIgnoreCase("y")) {
                     System.out.println("Let's make another selection!");
                     continue;
 
@@ -70,12 +69,8 @@ public class SimpleShoppingCartProgramHashmap {
 
                 }
 
-
             }
-
-
-
-
+//just a comment
 
         }
         while (i < 5);
