@@ -1,5 +1,6 @@
 package com.jordan.datastructure;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -7,12 +8,13 @@ public class SimpleShoppingCartProgramHashmap {
 
 
     public static void main(String[] args) {
-
+        double sum = 0;
         int i = 0;
 
         // Create an empty hash map by declaring object
         // of string and integer type
         HashMap<String, Double> legoSet = new HashMap<>();
+        ArrayList<String> toyPurchaseList = new ArrayList<>();
         System.out.println("Welcome to Joseph's Shopping Cart!");
 
         // Adding elements to the Map
@@ -25,56 +27,37 @@ public class SimpleShoppingCartProgramHashmap {
 
         System.out.println("The list of Lego Sets for sale are: " + legoSet);
         Scanner userInput = new Scanner(System.in);
-
+        String loopResponse;
 
         do {
             System.out.println("What is your toy selection you would like to purchase?");
 
-            i++;
-
             String selection = userInput.nextLine();
-            if (selection.equalsIgnoreCase("Education Prime Set")
-                    || selection.equalsIgnoreCase("Christmas Tree")
-                    || selection.equalsIgnoreCase("Freight Train")
-                    || selection.equalsIgnoreCase("Stunt Arena")
-                    || selection.equalsIgnoreCase("Material Handler")
-                    || selection.equalsIgnoreCase("Castle Expansion Set")) {
-                System.out.println("Congratulations we have your toy selection!");
-
-                System.out.println("Do you want to try again? Y or N");
-                String loopResponse = userInput.nextLine();
-
-                if (loopResponse.equalsIgnoreCase("y")) {
-                    System.out.println("Let's make another selection!");
-                    continue;
-
-                } else if (loopResponse.equalsIgnoreCase("n")) {
-                    System.out.println("It was a pleasure shopping with you!");
-                    break;
-
-                }
 
 
+            if (legoSet.containsKey(selection)) {
+                toyPurchaseList.add(selection);
             } else {
-                System.out.println("Your selection is invalid!");
-                System.out.println("Do you want to make another selection Y or N?");
-                String loopResponse = userInput.nextLine();
-                if (loopResponse.equalsIgnoreCase("y")) {
-                    System.out.println("Welcome to Joseph's Shopping Cart!");
-                    continue;
-
-                } else if (loopResponse.equalsIgnoreCase("n")) {
-                    System.out.println("It was a pleasure shopping with you!");
-                    break;
-
-                }
-
+                System.out.println("Invalid selection!");
             }
+
+            System.out.println("Do you want to try again? Y or N");
+            loopResponse = userInput.nextLine();
+
+
 //just a comment
 
         }
-        while (i < 5);
 
+        while (loopResponse.equalsIgnoreCase("Y"));
+
+        for(String toyList   : toyPurchaseList){
+            double prices = legoSet.get(toyList);
+            sum = sum + prices;
+
+
+        }
+        System.out.println("The total bill is " + sum);
     }
 }
 
