@@ -14,7 +14,7 @@ public class WordCount {
         String line4 = "There is no greatness where there is not simplicity, goodness, and truth.";
         String line5 = "A limit has been set to human life, which cannot be overstepped";
         String line6 = "Well, what makes you go to war?";
-        HashMap<String, Integer> numberOfOccurences = new HashMap<>();
+        //HashMap<String, Integer> numberOfOccurences = new HashMap<>();
         ArrayList<String> list = new ArrayList<>();
         WordCount wordCount = new WordCount();
         // String line = "this is a test";

@@ -41,6 +41,8 @@ public class SimpleShoppingCartProgramHashmap {
                 System.out.println("Invalid selection!");
             }
 
+
+
             System.out.println("Do you want to try again? Y or N");
             loopResponse = userInput.nextLine();
 
