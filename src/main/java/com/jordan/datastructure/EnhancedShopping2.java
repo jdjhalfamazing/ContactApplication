@@ -8,12 +8,18 @@ public class EnhancedShopping2 {
     public static void main(String[] args) {
         ArrayList<String> listOfProducts = new ArrayList<>();
         ArrayList<String> shoppingList = new ArrayList<>();
+       // ArrayList<String> shoppingListProductDescription = new ArrayList<>();
+
         HashMap<String, String> productsDescription = new HashMap<>();
         HashMap<String, Double> productPrices = new HashMap<>();
         HashMap<String, Integer> numberOfProductsAvailable = new HashMap<>();
+        double sum = 0;
         String productCode;
         String productDescription;
         Double productPrice;
+        String selection;
+        Double price;
+        String description = null;
 
         Scanner userInput = new Scanner(System.in);
 
@@ -31,10 +37,12 @@ public class EnhancedShopping2 {
             productDescription = productDetail[1];
             productPrice = Double.valueOf(productDetail[2]);
             Integer availableProducts = Integer.valueOf(productDetail[3]);
+
             productsDescription.put(productCode, productDescription);
             productPrices.put(productCode, productPrice);
             numberOfProductsAvailable.put(productCode, availableProducts);
         }
+
         System.out.println("Welcome to the Toy Shopping Store!");
         System.out.println(productsDescription);
         String doneShopping = "Yes";
@@ -42,7 +50,7 @@ public class EnhancedShopping2 {
 
         do {
             System.out.println("Provide your selection please!");
-            String selection = userInput.nextLine();
+            selection = userInput.nextLine();
             if (productsDescription.containsKey(selection)) {
                 System.out.println("We found the product");
                 int stockProductsAvailable = numberOfProductsAvailable.get(selection);
@@ -78,9 +86,22 @@ public class EnhancedShopping2 {
             if (shoppingList.contains(removeSelection)) {
                 System.out.println("Lets remove this toy for you!");
                 shoppingList.remove(removeSelection);
-                System.out.println(shoppingList);
             }
+
+
         }
+        for (String toyList : shoppingList) {
+            Double prices = productPrices.get(toyList);
+            sum = sum + prices;
+        }
+        System.out.println("The final prices is " + sum);
+
+      for (String shoppingItem : shoppingList) {
+
+          System.out.println(productsDescription.get(shoppingItem));
+
+        }
+
 
     }
 }
